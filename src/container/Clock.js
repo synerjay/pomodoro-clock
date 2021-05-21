@@ -49,6 +49,17 @@ function Clock() {
     };
 
     let clockInterval;
+    if (isPlaying && clockCount > 0) {
+      clockInterval = setInterval(() => {
+        setClockCount(clockCount - 1);
+      }, 1000);
+    } else if (isPlaying && clockCount === 0) {
+      clockInterval = setInterval(() => {
+        setClockCount(clockCount - 1);
+      }, 1000);
+      // play audio music here
+      switchTimer();
+    }
   }, []);
 
   return (
