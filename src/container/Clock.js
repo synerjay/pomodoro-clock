@@ -67,6 +67,28 @@ function Clock() {
     return () => clearInterval(clockInterval);
   }, [isPlaying]);
 
+  // Start Clock
+
+  const handleStartClock = () => {
+    setIsPlaying(true);
+    // setting setIsPlaying to true will fire the useEffect hook because it is set to depend on the changes of the isPlaying state
+  };
+
+  //Stop Clock
+
+  const handleStopClock = () => {
+    setIsPlaying(false);
+  };
+
+  const handleResetClock = () => {
+    setBreakCount(5);
+    setSessionCount(25);
+    setCurrentTimer('Session');
+    setClockCount(1500);
+    setIsPlaying(false);
+    // Reset audio file here -- DO NOT FORGET!
+  };
+
   return (
     <div>
       <h2> This is the future site of the Pomodoro Clock</h2>
