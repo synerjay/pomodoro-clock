@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Break from '../components/Break';
+import Session from '../components/Session';
 
 function Clock() {
   const [breakCount, setBreakCount] = useState(5);
