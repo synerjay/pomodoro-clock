@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Break from '../components/Break';
 
 function Clock() {
   const [breakCount, setBreakCount] = useState(5);
@@ -80,6 +81,8 @@ function Clock() {
     setIsPlaying(false);
   };
 
+  // Reset the Clock
+
   const handleResetClock = () => {
     setBreakCount(5);
     setSessionCount(25);
@@ -91,7 +94,26 @@ function Clock() {
 
   return (
     <div>
-      <h2> This is the future site of the Pomodoro Clock</h2>
+      <Break
+        increment={incrementBreak}
+        decrement={decrementBreak}
+        breakCount={breakCount}
+      />
+      <Session
+        increment={incrementSession}
+        decrement={decrementBreak}
+        sessionCount={sessionCount}
+      />
+      <div>
+        <h2 id='timer-label'>{this.state.currentTimer} Timer: </h2>
+        <h2 id='time-left'>{this.timeConverter(this.state.clockCount)}</h2>
+        <button id='start_stop' onClick={this.handlePlayPause}>
+          Play/Pause
+        </button>
+        <button id='reset' onClick={this.handleReset}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
