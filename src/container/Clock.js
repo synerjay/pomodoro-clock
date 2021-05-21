@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Clock() {
   const [breakCount, setBreakCount] = useState(5);
@@ -34,6 +34,22 @@ function Clock() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [clockCount, setClockCount] = useState(25 * 60);
   const [currentTimer, setCurrentTimer] = useState('Session');
+
+  // useEffect will detect any changes of component states, e.g. depend on changes of the isPlaying state
+  useEffect(() => {
+    //This function switches the Current Timer to the opposite phase
+    const switchTimer = () => {
+      if (currentTimer === 'Session') {
+        setCurrentTimer('Break');
+        setClockCount(breakCount * 60); // set the Clock count to seconds
+      } else {
+        setCurrentTimer('Session');
+        setClockCount(sessionCount * 60);
+      }
+    };
+
+    let clockInterval;
+  }, []);
 
   return (
     <div>
