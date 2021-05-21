@@ -59,8 +59,13 @@ function Clock() {
       }, 1000);
       // play audio music here
       switchTimer();
+    } else {
+      clearInterval(clockInterval);
     }
-  }, []);
+
+    // useEffect hook version of componentWillUnmount
+    return () => clearInterval(clockInterval);
+  }, [isPlaying]);
 
   return (
     <div>
