@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Break from '../components/Break';
 import Session from '../components/Session';
+import { timeFormatter } from '../utils';
 
 function Clock() {
   const [breakCount, setBreakCount] = useState(5);
@@ -106,9 +107,12 @@ function Clock() {
         sessionCount={sessionCount}
       />
       <div>
-        <h2 id='timer-label'>{this.state.currentTimer} Timer: </h2>
-        <h2 id='time-left'>{this.timeConverter(this.state.clockCount)}</h2>
-        <button id='start_stop' onClick={this.handlePlayPause}>
+        <h2 id='timer-label'>{currentTimer} Timer: </h2>
+        <h2 id='time-left'>{timeFormatter(clockCount)}</h2>
+        <button
+          id='start_stop'
+          onClick={isPlaying ? handleStopClock : handleStartClock}
+        >
           Play/Pause
         </button>
         <button id='reset' onClick={this.handleReset}>
