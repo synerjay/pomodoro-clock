@@ -10,6 +10,9 @@ function Clock() {
   const incrementBreak = () => {
     if (!isPlaying && breakCount < 60) {
       setBreakCount(breakCount + 1);
+      if (currentTimer === 'Break') {
+        setClockCount(breakCount * 60 + 60);
+      }
     }
   };
 
@@ -17,6 +20,9 @@ function Clock() {
   const decrementBreak = () => {
     if (!isPlaying && breakCount > 1) {
       setBreakCount(breakCount - 1);
+      if (currentTimer === 'Break') {
+        setClockCount(breakCount * 60 - 60);
+      }
     }
   };
 
@@ -25,6 +31,9 @@ function Clock() {
   const incrementSession = () => {
     if (!isPlaying && sessionCount < 60) {
       setSessionCount(sessionCount + 1);
+      if (currentTimer === 'Session') {
+        setClockCount(sessionCount * 60 + 60);
+      }
     }
   };
 
@@ -32,6 +41,9 @@ function Clock() {
   const decrementSession = () => {
     if (!isPlaying && sessionCount > 1) {
       setSessionCount(sessionCount - 1);
+      if (currentTimer === 'Session') {
+        setClockCount(sessionCount * 60 - 60);
+      }
     }
   };
 
@@ -69,7 +81,7 @@ function Clock() {
 
     // useEffect hook version of componentWillUnmount
     return () => clearInterval(clockInterval);
-  }, [isPlaying]);
+  }, [isPlaying, breakCount, sessionCount, currentTimer, clockCount]);
 
   // Start Clock
 
@@ -104,7 +116,7 @@ function Clock() {
       />
       <Session
         increment={incrementSession}
-        decrement={decrementBreak}
+        decrement={decrementSession}
         sessionCount={sessionCount}
       />
       <div>
