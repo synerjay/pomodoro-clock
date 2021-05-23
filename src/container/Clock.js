@@ -108,13 +108,13 @@ function Clock() {
   };
 
   return (
-    <div>
-      <div className='TimerSection'>
+    <div className='flex items-center justify-center flex-col flex-grow w-screen h-screen'>
+      <div className='TimerSection flex flex-col justify-center'>
         <h3 id='timer-label'>{currentTimer} Timer: </h3>
         <h1 id='time-left'>{timeFormatter(clockCount)}</h1>
       </div>
 
-      <div className='ButtonsSection'>
+      <div className='ButtonsSection flex justify-center space-x-20'>
         <Break
           increment={incrementBreak}
           decrement={decrementBreak}

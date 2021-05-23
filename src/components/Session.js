@@ -2,9 +2,9 @@ import React from 'react';
 
 function Session({ increment, decrement, sessionCount }) {
   return (
-    <div className='SessionTimer'>
+    <div className='SessionTimer flex flex-col justify-center'>
       <h3 id='session-label'>Session Length:</h3>{' '}
-      <div className='SessionButtons'>
+      <div className='SessionButtons flex flex-row justify-center'>
         <button
           className='decrementWork'
           id='session-decrement'
