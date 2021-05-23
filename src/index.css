@@ -24,3 +24,12 @@ h2 {
 .BreakButtons {
   display: flex;
 }
+
+.SessionTimer {
+  display: flex;
+  flex-direction: column;
+}
+
+.SessionButtons {
+  display: flex;
+}
