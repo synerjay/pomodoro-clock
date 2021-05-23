@@ -109,24 +109,28 @@ function Clock() {
 
   return (
     <div>
-      <Break
-        increment={incrementBreak}
-        decrement={decrementBreak}
-        breakCount={breakCount}
-      />
-      <Session
-        increment={incrementSession}
-        decrement={decrementSession}
-        sessionCount={sessionCount}
-      />
-      <div>
-        <h2 id='timer-label'>{currentTimer} Timer: </h2>
-        <h2 id='time-left'>{timeFormatter(clockCount)}</h2>
+      <div className='TimerSection'>
+        <h3 id='timer-label'>{currentTimer} Timer: </h3>
+        <h1 id='time-left'>{timeFormatter(clockCount)}</h1>
+      </div>
+
+      <div className='ButtonsSection'>
+        <Break
+          increment={incrementBreak}
+          decrement={decrementBreak}
+          breakCount={breakCount}
+        />
+
         <Buttons
           reset={handleResetClock}
           stop={handleStopClock}
           start={handleStartClock}
           isPlaying={isPlaying}
+        />
+        <Session
+          increment={incrementSession}
+          decrement={decrementSession}
+          sessionCount={sessionCount}
         />
       </div>
     </div>
