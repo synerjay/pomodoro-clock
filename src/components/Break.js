@@ -6,7 +6,7 @@ function Break({ increment, decrement, breakCount }) {
       <h3 id='break-label'>Break Length:</h3>
       <div className='BreakButtons flex flex-row justify-center'>
         <button
-          className='decrementBreak | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
+          className='decrementBreak focus:outline-none | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
           id='break-decrement'
           onClick={decrement}
         >
@@ -28,7 +28,7 @@ function Break({ increment, decrement, breakCount }) {
         <h3 id='break-length'>{breakCount}</h3>
 
         <button
-          className='incrementBreak transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
+          className='incrementBreak focus:outline-none transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
           id='break-increment'
           onClick={increment}
         >

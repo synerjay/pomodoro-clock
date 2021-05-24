@@ -6,7 +6,7 @@ function Session({ increment, decrement, sessionCount }) {
       <h3 id='session-label'>Session Length:</h3>{' '}
       <div className='SessionButtons flex flex-row justify-center'>
         <button
-          className='decrementWork | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
+          className='decrementWork focus:outline-none | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
           id='session-decrement'
           onClick={decrement}
         >
@@ -27,7 +27,7 @@ function Session({ increment, decrement, sessionCount }) {
         </button>
         <h3 id='session-length'>{sessionCount}</h3>
         <button
-          className='incrementWork | transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
+          className='incrementWork focus:outline-none | transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
           id='session-increment'
           onClick={increment}
         >

@@ -4,7 +4,7 @@ function Buttons({ reset, start, stop, isPlaying }) {
   return (
     <div className='buttons flex flex-row justify-center space-x-4'>
       <button
-        className='btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white | transition ease-out duration-500'
+        className='btn text-primary hover:bg-primary hover:text-white | transition ease-out duration-500'
         id='start_stop'
         onClick={isPlaying ? stop : start}
       >
@@ -46,7 +46,11 @@ function Buttons({ reset, start, stop, isPlaying }) {
           </svg>
         )}
       </button>
-      <button id='reset' onClick={reset}>
+      <button
+        className='btn text-primary hover:bg-primary hover:text-white | transition ease-out duration-500'
+        id='reset'
+        onClick={reset}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           className='h-6 w-6'
