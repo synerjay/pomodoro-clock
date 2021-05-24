@@ -115,9 +115,12 @@ function Clock() {
   };
 
   return (
-    <div className='flex items-center justify-center flex-col flex-grow w-screen h-screen'>
+    <div className='card hover:shadow-xl flex items-center justify-center flex-col flex-grow w-screen h-screen space-y-10'>
       <div className='TimerSection flex flex-col justify-center'>
-        <h3 className='flex flex-row justify-center' id='timer-label'>
+        <h3
+          className='text-primary flex flex-row justify-center text-2xl uppercase'
+          id='timer-label'
+        >
           {currentTimer} Timer:{' '}
         </h3>
 
