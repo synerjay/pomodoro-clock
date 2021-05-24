@@ -3,8 +3,13 @@ import Break from '../components/Break';
 import Buttons from '../components/Buttons';
 import Session from '../components/Session';
 import { timeFormatter } from '../utils';
+import beep from '../beep.wav';
 
 function Clock() {
+  // Access the Audio DOM element by using useRef hook
+  const audioRef = useRef();
+  console.log(audioRef);
+
   const [breakCount, setBreakCount] = useState(5);
   // Increment Break Length
   const incrementBreak = () => {
@@ -138,6 +143,7 @@ function Clock() {
           sessionCount={sessionCount}
         />
       </div>
+      <audio id='beep' preload='auto' src={beep} ref={audioRef} />
     </div>
   );
 }
