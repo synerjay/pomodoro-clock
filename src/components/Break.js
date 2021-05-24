@@ -27,7 +27,7 @@ function Break({ increment, decrement, breakCount }) {
             />
           </svg>
         </button>
-        <h3 className='text-2xl uppercase mx-7' id='break-length'>
+        <h3 className='text-primary text-2xl uppercase mx-7' id='break-length'>
           {breakCount}
         </h3>
 
