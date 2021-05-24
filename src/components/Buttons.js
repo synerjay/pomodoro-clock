@@ -3,7 +3,11 @@ import React from 'react';
 function Buttons({ reset, start, stop, isPlaying }) {
   return (
     <div className='buttons flex flex-row justify-center space-x-4'>
-      <button id='start_stop' onClick={isPlaying ? stop : start}>
+      <button
+        className='btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white | transition ease-out duration-500'
+        id='start_stop'
+        onClick={isPlaying ? stop : start}
+      >
         {isPlaying ? (
           <svg
             xmlns='http://www.w3.org/2000/svg'
