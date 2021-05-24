@@ -2,9 +2,9 @@ import React from 'react';
 
 function Buttons({ reset, start, stop, isPlaying }) {
   return (
-    <div className='buttons flex flex-row justify-center space-x-4'>
+    <div className='buttons flex flex-row justify-center space-x-7'>
       <button
-        className='btn text-primary hover:bg-primary hover:text-white | transition ease-out duration-500'
+        className='btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white | transition ease-out duration-500'
         id='start_stop'
         onClick={isPlaying ? stop : start}
       >
@@ -47,7 +47,7 @@ function Buttons({ reset, start, stop, isPlaying }) {
         )}
       </button>
       <button
-        className='btn text-primary hover:bg-primary hover:text-white | transition ease-out duration-500'
+        className='btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white | transition ease-out duration-500'
         id='reset'
         onClick={reset}
       >

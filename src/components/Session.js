@@ -3,7 +3,9 @@ import React from 'react';
 function Session({ increment, decrement, sessionCount }) {
   return (
     <div className='SessionTimer flex flex-col justify-center'>
-      <h3 id='session-label'>Session Length:</h3>{' '}
+      <h3 className='text-2xl uppercase' id='session-label'>
+        Session Length:
+      </h3>{' '}
       <div className='SessionButtons flex flex-row justify-center'>
         <button
           className='decrementWork focus:outline-none | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
@@ -25,7 +27,9 @@ function Session({ increment, decrement, sessionCount }) {
             />
           </svg>
         </button>
-        <h3 id='session-length'>{sessionCount}</h3>
+        <h3 className='text-2xl uppercase mx-7' id='session-length'>
+          {sessionCount}
+        </h3>
         <button
           className='incrementWork focus:outline-none | transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
           id='session-increment'

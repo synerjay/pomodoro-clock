@@ -3,7 +3,9 @@ import React from 'react';
 function Break({ increment, decrement, breakCount }) {
   return (
     <div className='BreakTimer flex flex-col justify-center'>
-      <h3 id='break-label'>Break Length:</h3>
+      <h3 className='text-2xl uppercase' id='break-label'>
+        Break Length:
+      </h3>
       <div className='BreakButtons flex flex-row justify-center'>
         <button
           className='decrementBreak focus:outline-none | transform hover:translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
@@ -25,7 +27,9 @@ function Break({ increment, decrement, breakCount }) {
             />
           </svg>
         </button>
-        <h3 id='break-length'>{breakCount}</h3>
+        <h3 className='text-2xl uppercase mx-7' id='break-length'>
+          {breakCount}
+        </h3>
 
         <button
           className='incrementBreak focus:outline-none transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
