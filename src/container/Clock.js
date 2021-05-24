@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Break from '../components/Break';
 import Buttons from '../components/Buttons';
 import Session from '../components/Session';
@@ -79,6 +79,7 @@ function Clock() {
         setClockCount(clockCount - 1);
       }, 1000);
       // play audio music here
+      audioRef.current.play();
       switchTimer();
     } else {
       clearInterval(clockInterval);
@@ -109,7 +110,8 @@ function Clock() {
     setCurrentTimer('Session');
     setClockCount(1500);
     setIsPlaying(false);
-    // Reset audio file here -- DO NOT FORGET!
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
   };
 
   return (
