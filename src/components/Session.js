@@ -2,7 +2,7 @@ import React from 'react';
 
 function Session({ increment, decrement, sessionCount }) {
   return (
-    <div className='SessionTimer flex flex-col justify-center'>
+    <div className='SessionTimer card hover:shadow-xl p-7 flex flex-col justify-center'>
       <h3 className='text-2xl uppercase' id='session-label'>
         Session Length:
       </h3>{' '}
