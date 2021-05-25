@@ -124,7 +124,10 @@ function Clock() {
           {currentTimer} Timer:{' '}
         </h3>
 
-        <h1 className='flex flex-row justify-center text-9xl' id='time-left'>
+        <h1
+          className='ClockFace flex flex-row justify-center text-9xl'
+          id='time-left'
+        >
           {timeFormatter(clockCount)}
         </h1>
       </div>

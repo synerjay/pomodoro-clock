@@ -28,7 +28,7 @@ function Session({ increment, decrement, sessionCount }) {
           </svg>
         </button>
         <h3
-          className='text-primary text-2xl uppercase mx-7'
+          className='SessionCount text-primary text-2xl uppercase mx-7'
           id='session-length'
         >
           {sessionCount}
