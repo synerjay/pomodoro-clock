@@ -29,7 +29,7 @@ code {
 .BreakCount,
 .SessionCount,
 .ClockFace {
-  font-family: 'DSEG7 Classic';
+  font-family: 'DSEG7 Classic', monospace;
 }
 
 .btn {

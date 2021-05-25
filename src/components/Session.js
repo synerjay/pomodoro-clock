@@ -1,6 +1,11 @@
 import React from 'react';
 
 function Session({ increment, decrement, sessionCount }) {
+  let count = sessionCount;
+
+  // minutes = minutes < 10 ? '0' + minutes : minutes;
+  count = count < 10 ? '0' + count : count;
+
   return (
     <div className='SessionTimer card hover:shadow-xl p-7 flex flex-col justify-center'>
       <h3 className='text-2xl uppercase' id='session-label'>
@@ -31,7 +36,7 @@ function Session({ increment, decrement, sessionCount }) {
           className='SessionCount text-primary text-2xl uppercase mx-7'
           id='session-length'
         >
-          {sessionCount}
+          {count}
         </h3>
         <button
           className='incrementWork focus:outline-none | transform hover:-translate-y-1 hover:bg-opacity-50 | transition ease-out duration-300'
