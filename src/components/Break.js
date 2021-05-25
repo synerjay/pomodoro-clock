@@ -1,6 +1,9 @@
 import React from 'react';
 
 function Break({ increment, decrement, breakCount }) {
+  let count = breakCount;
+  count = count < 10 ? '0' + count : count;
+
   return (
     <div className='BreakTimer card hover:shadow-xl p-7 flex flex-col justify-center'>
       <h3 className='text-2xl uppercase' id='break-label'>
@@ -31,7 +34,7 @@ function Break({ increment, decrement, breakCount }) {
           className='BreakCount text-primary text-2xl uppercase mx-7'
           id='break-length'
         >
-          {breakCount}
+          {count}
         </h3>
 
         <button

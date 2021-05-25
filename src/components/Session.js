@@ -2,8 +2,6 @@ import React from 'react';
 
 function Session({ increment, decrement, sessionCount }) {
   let count = sessionCount;
-
-  // minutes = minutes < 10 ? '0' + minutes : minutes;
   count = count < 10 ? '0' + count : count;
 
   return (
