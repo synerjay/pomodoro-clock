@@ -5,7 +5,7 @@ function Break({ increment, decrement, breakCount }) {
   count = count < 10 ? '0' + count : count;
 
   return (
-    <div className='BreakTimer card hover:shadow-xl p-7 flex flex-col justify-center'>
+    <div className='BreakTimer p-2 card hover:shadow-xl md:p-7 flex flex-col justify-center'>
       <h3 className='text-2xl uppercase flex justify-center' id='break-label'>
         Break Length:
       </h3>
