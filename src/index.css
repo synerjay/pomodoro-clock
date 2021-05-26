@@ -37,11 +37,11 @@ code {
 }
 
 .btn {
-  @apply bg-white rounded-full py-2 px-10 font-bold cursor-pointer tracking-wider focus:outline-none;
+  @apply bg-gray-900 rounded-full py-2 px-10 font-bold cursor-pointer tracking-wider focus:outline-none;
 }
 
 .card {
-  @apply bg-white rounded overflow-hidden shadow-lg relative;
+  @apply bg-gray-800 rounded overflow-hidden shadow-lg relative;
 }
 
 h2 {

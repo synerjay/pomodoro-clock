@@ -118,14 +118,14 @@ function Clock() {
     <div className='flex items-center justify-center flex-col flex-grow w-screen h-screen space-y-10'>
       <div className='TimerSection p-5 md:p-10 card hover:shadow-xl flex flex-col justify-center'>
         <h3
-          className='text-primary flex flex-row justify-center text-2xl uppercase mb-5'
+          className='flex flex-row justify-center text-2xl uppercase mb-5'
           id='timer-label'
         >
           {currentTimer} Timer:{' '}
         </h3>
 
         <h1
-          className='ClockFace flex flex-row justify-center text-9xl'
+          className='ClockFace text-primary flex flex-row justify-center text-9xl'
           id='time-left'
         >
           {timeFormatter(clockCount)}
