@@ -132,7 +132,7 @@ function Clock() {
         </h1>
       </div>
 
-      <div className='ButtonsSection flex justify-center space-x-20'>
+      <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'>
         <Break
           increment={incrementBreak}
           decrement={decrementBreak}
