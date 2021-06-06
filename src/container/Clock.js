@@ -125,7 +125,10 @@ function Clock() {
         </h3>
 
         <h1
-          className='ClockFace text-primary flex flex-row justify-center text-9xl'
+          className={
+            'ClockFace flex flex-row justify-center text-9xl ' +
+            (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
+          }
           id='time-left'
         >
           {timeFormatter(clockCount)}
