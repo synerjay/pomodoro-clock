@@ -149,6 +149,7 @@ function Clock() {
         <CountdownCircleTimer
           isPlaying={isPlaying}
           duration={clockCount}
+          key={sessionCount}
           initialRemainingTime={sessionCount * 60}
           colors={[
             ['#004777', 0.33],
