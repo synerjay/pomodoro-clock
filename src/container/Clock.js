@@ -4,6 +4,7 @@ import Buttons from '../components/Buttons';
 import Session from '../components/Session';
 import { timeFormatter } from '../utils';
 import beep from '../beep.wav';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 function Clock() {
   // Access the Audio DOM element by using useRef hook
@@ -108,10 +109,24 @@ function Clock() {
     setBreakCount(5);
     setSessionCount(25);
     setCurrentTimer('Session');
-    setClockCount(1500);
+    setClockCount(25 * 60); // set to initial values
     setIsPlaying(false);
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
+  };
+
+  const renderTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      return <div className='timer'>Too lale...</div>;
+    }
+
+    return (
+      <div className='timer'>
+        <div className='text'>Remaining</div>
+        <div className='value'>{timeFormatter(clockCount)}</div>
+        <div className='text'>seconds</div>
+      </div>
+    );
   };
 
   return (
@@ -124,15 +139,27 @@ function Clock() {
           {currentTimer} Timer:{' '}
         </h3>
 
-        <h1
+        {/* <h1
           className={
             'ClockFace flex flex-row justify-center text-9xl ' +
             (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
           }
           id='time-left'
+        > */}
+        <CountdownCircleTimer
+          isPlaying={isPlaying}
+          duration={clockCount}
+          initialRemainingTime={sessionCount * 60}
+          colors={[
+            ['#004777', 0.33],
+            ['#F7B801', 0.33],
+            ['#A30000', 0.33],
+          ]}
         >
-          {timeFormatter(clockCount)}
-        </h1>
+          {renderTime}
+        </CountdownCircleTimer>
+        {/* {timeFormatter(clockCount)} */}
+        {/* </h1> */}
       </div>
 
       <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'>
