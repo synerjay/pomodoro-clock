@@ -10,6 +10,10 @@ function Clock() {
   // Access the Audio DOM element by using useRef hook
   const audioRef = useRef();
   console.log(audioRef);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [clockCount, setClockCount] = useState(25 * 60);
+  const [currentTimer, setCurrentTimer] = useState('Session');
+  const [key, setKey] = useState(0);
 
   const [breakCount, setBreakCount] = useState(5);
   // Increment Break Length
@@ -37,8 +41,10 @@ function Clock() {
   const incrementSession = () => {
     if (!isPlaying && sessionCount < 60) {
       setSessionCount(sessionCount + 1);
+      setKey((prevKey) => prevKey + 1);
       if (currentTimer === 'Session') {
         setClockCount(sessionCount * 60 + 60);
+        setKey((prevKey) => prevKey + 1);
       }
     }
   };
@@ -47,15 +53,13 @@ function Clock() {
   const decrementSession = () => {
     if (!isPlaying && sessionCount > 1) {
       setSessionCount(sessionCount - 1);
+      setKey((prevKey) => prevKey + 1);
       if (currentTimer === 'Session') {
         setClockCount(sessionCount * 60 - 60);
+        setKey((prevKey) => prevKey + 1);
       }
     }
   };
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [clockCount, setClockCount] = useState(25 * 60);
-  const [currentTimer, setCurrentTimer] = useState('Session');
 
   // useEffect will detect any changes of component states, e.g. depend on changes of the isPlaying state
   useEffect(() => {
@@ -149,7 +153,7 @@ function Clock() {
         <CountdownCircleTimer
           isPlaying={isPlaying}
           duration={clockCount}
-          key={sessionCount}
+          key={key}
           initialRemainingTime={sessionCount * 60}
           colors={[
             ['#004777', 0.33],
