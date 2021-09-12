@@ -68,9 +68,11 @@ function Clock() {
       if (currentTimer === 'Session') {
         setCurrentTimer('Break');
         setClockCount(breakCount * 60); // set the Clock count to seconds
+        setKey((prevKey) => prevKey + 1);
       } else {
         setCurrentTimer('Session');
         setClockCount(sessionCount * 60);
+        setKey((prevKey) => prevKey + 1);
       }
     };
 
@@ -117,11 +119,14 @@ function Clock() {
     setIsPlaying(false);
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
+    setKey((prevKey) => prevKey + 1);
   };
 
   const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-      return <div className='timer'>Too lale...</div>;
+    // console.log(clockCount);
+    // console.log(remainingTime);
+    if (clockCount === 0) {
+      return <div className='timer'>Too late...</div>;
     }
 
     return (
@@ -160,6 +165,7 @@ function Clock() {
             ['#F7B801', 0.33],
             ['#A30000', 0.33],
           ]}
+          onComplete={() => [true, 1000]}
         >
           {renderTime}
         </CountdownCircleTimer>
