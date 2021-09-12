@@ -41,10 +41,8 @@ function Clock() {
   const incrementSession = () => {
     if (!isPlaying && sessionCount < 60) {
       setSessionCount(sessionCount + 1);
-      setKey((prevKey) => prevKey + 1);
       if (currentTimer === 'Session') {
         setClockCount(sessionCount * 60 + 60);
-        setKey((prevKey) => prevKey + 1);
       }
     }
   };
