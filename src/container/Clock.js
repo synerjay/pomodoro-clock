@@ -121,8 +121,6 @@ function Clock() {
   };
 
   const renderTime = ({ remainingTime }) => {
-    // console.log(clockCount);
-    // console.log(remainingTime);
     if (clockCount === 0) {
       return <div className='timer'>Too late...</div>;
     }
