@@ -9,19 +9,19 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 function Clock() {
   // Access the Audio DOM element by using useRef hook
   const audioRef = useRef();
-  console.log(audioRef);
   const [isPlaying, setIsPlaying] = useState(false);
   const [clockCount, setClockCount] = useState(25 * 60);
   const [currentTimer, setCurrentTimer] = useState('Session');
   const [key, setKey] = useState(0);
-
   const [breakCount, setBreakCount] = useState(5);
+
   // Increment Break Length
   const incrementBreak = () => {
     if (!isPlaying && breakCount < 60) {
       setBreakCount(breakCount + 1);
       if (currentTimer === 'Break') {
         setClockCount(breakCount * 60 + 60);
+        setKey((prevKey) => prevKey + 1);
       }
     }
   };
@@ -32,6 +32,7 @@ function Clock() {
       setBreakCount(breakCount - 1);
       if (currentTimer === 'Break') {
         setClockCount(breakCount * 60 - 60);
+        setKey((prevKey) => prevKey + 1);
       }
     }
   };
@@ -43,6 +44,7 @@ function Clock() {
       setSessionCount(sessionCount + 1);
       if (currentTimer === 'Session') {
         setClockCount(sessionCount * 60 + 60);
+        setKey((prevKey) => prevKey + 1);
       }
     }
   };
@@ -51,7 +53,6 @@ function Clock() {
   const decrementSession = () => {
     if (!isPlaying && sessionCount > 1) {
       setSessionCount(sessionCount - 1);
-      setKey((prevKey) => prevKey + 1);
       if (currentTimer === 'Session') {
         setClockCount(sessionCount * 60 - 60);
         setKey((prevKey) => prevKey + 1);
@@ -85,6 +86,7 @@ function Clock() {
       }, 1000);
       // play audio music here
       audioRef.current.play();
+      // setKey((prevKey) => prevKey + 1);
       switchTimer();
     } else {
       clearInterval(clockInterval);
@@ -120,15 +122,26 @@ function Clock() {
     setKey((prevKey) => prevKey + 1);
   };
 
-  const renderTime = ({ remainingTime }) => {
-    if (clockCount === 0) {
-      return <div className='timer'>Too late...</div>;
-    }
+  useEffect(() => {
+    console.log(clockCount);
+  }, []);
+
+  const RenderTime = ({ remainingTime }) => {
+    // if (clockCount === 0) {
+    //   return <div className='timer'>Too late...</div>;
+    // }
+
+    useEffect(() => {
+      console.log(remainingTime);
+    }, [remainingTime]);
 
     return (
       <div className='timer'>
         <div className='text'>Remaining</div>
-        <div className='value'>{timeFormatter(clockCount)}</div>
+        <div className='value'>Clock Count {timeFormatter(clockCount)}</div>
+        <div className='value'>
+          Remaining Time {timeFormatter(remainingTime)}
+        </div>
         <div className='text'>seconds</div>
       </div>
     );
@@ -155,15 +168,17 @@ function Clock() {
           isPlaying={isPlaying}
           duration={clockCount}
           key={key}
-          initialRemainingTime={sessionCount * 60}
+          initialRemainingTime={
+            currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
+          }
           colors={[
             ['#004777', 0.33],
             ['#F7B801', 0.33],
             ['#A30000', 0.33],
           ]}
-          onComplete={() => [true, 1000]}
+          // onComplete={() => [true, 1000]}
         >
-          {renderTime}
+          {RenderTime}
         </CountdownCircleTimer>
         {/* {timeFormatter(clockCount)} */}
         {/* </h1> */}
