@@ -122,23 +122,14 @@ function Clock() {
     setKey((prevKey) => prevKey + 1);
   };
 
-  useEffect(() => {
-    console.log(clockCount);
-  }, []);
-
   const RenderTime = ({ remainingTime }) => {
     // if (clockCount === 0) {
     //   return <div className='timer'>Too late...</div>;
     // }
 
-    useEffect(() => {
-      console.log(remainingTime);
-    }, [remainingTime]);
-
     return (
       <div className='timer'>
         <div className='text'>Remaining</div>
-        <div className='value'>Clock Count {timeFormatter(clockCount)}</div>
         <div className='value'>
           Remaining Time {timeFormatter(remainingTime)}
         </div>
@@ -176,7 +167,6 @@ function Clock() {
             ['#F7B801', 0.33],
             ['#A30000', 0.33],
           ]}
-          // onComplete={() => [true, 1000]}
         >
           {RenderTime}
         </CountdownCircleTimer>
