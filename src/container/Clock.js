@@ -123,18 +123,16 @@ function Clock() {
   };
 
   const RenderTime = ({ remainingTime }) => {
-    // if (clockCount === 0) {
-    //   return <div className='timer'>Too late...</div>;
-    // }
-
     return (
-      <div className='timer'>
-        <div className='text'>Remaining</div>
-        <div className='value'>
-          Remaining Time {timeFormatter(remainingTime)}
-        </div>
-        <div className='text'>seconds</div>
-      </div>
+      <h1
+        className={
+          'ClockFace flex flex-row justify-center text-9xl ' +
+          (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
+        }
+        id='time-left'
+      >
+        {timeFormatter(remainingTime)}
+      </h1>
     );
   };
 
@@ -148,17 +146,12 @@ function Clock() {
           {currentTimer} Timer:{' '}
         </h3>
 
-        {/* <h1
-          className={
-            'ClockFace flex flex-row justify-center text-9xl ' +
-            (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
-          }
-          id='time-left'
-        > */}
         <CountdownCircleTimer
           isPlaying={isPlaying}
           duration={clockCount}
           key={key}
+          size={500}
+          strokeWidth={30}
           initialRemainingTime={
             currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
           }
@@ -170,8 +163,6 @@ function Clock() {
         >
           {RenderTime}
         </CountdownCircleTimer>
-        {/* {timeFormatter(clockCount)} */}
-        {/* </h1> */}
       </div>
 
       <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'>
