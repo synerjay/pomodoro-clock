@@ -14,6 +14,7 @@ function Clock() {
   const [currentTimer, setCurrentTimer] = useState('Session');
   const [key, setKey] = useState(0);
   const [breakCount, setBreakCount] = useState(5);
+  const [sessionCount, setSessionCount] = useState(25);
 
   // Increment Break Length
   const incrementBreak = () => {
@@ -37,7 +38,6 @@ function Clock() {
     }
   };
 
-  const [sessionCount, setSessionCount] = useState(25);
   //Increment Session Length
   const incrementSession = () => {
     if (!isPlaying && sessionCount < 60) {
@@ -86,7 +86,7 @@ function Clock() {
       }, 1000);
       // play audio music here
       audioRef.current.play();
-      // setKey((prevKey) => prevKey + 1);
+      setKey((prevKey) => prevKey + 1);
       switchTimer();
     } else {
       clearInterval(clockInterval);
