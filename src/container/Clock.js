@@ -124,15 +124,35 @@ function Clock() {
 
   const RenderTime = ({ remainingTime }) => {
     return (
-      <h1
-        className={
-          'ClockFace flex flex-row justify-center text-8xl ' +
-          (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
-        }
-        id='time-left'
-      >
-        {timeFormatter(remainingTime)}
-      </h1>
+      <div className='flex flex-col gap-y-5'>
+        <div className='flex flex-row'>
+          <Break
+            increment={incrementBreak}
+            decrement={decrementBreak}
+            breakCount={breakCount}
+          />
+          <Session
+            increment={incrementSession}
+            decrement={decrementSession}
+            sessionCount={sessionCount}
+          />
+        </div>
+        <h1
+          className={
+            'ClockFace flex flex-row justify-center text-8xl ' +
+            (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
+          }
+          id='time-left'
+        >
+          {timeFormatter(remainingTime)}
+        </h1>
+        <Buttons
+          reset={handleResetClock}
+          stop={handleStopClock}
+          start={handleStartClock}
+          isPlaying={isPlaying}
+        />
+      </div>
     );
   };
 
@@ -150,7 +170,7 @@ function Clock() {
           isPlaying={isPlaying}
           duration={clockCount}
           key={key}
-          size={450}
+          size={600}
           strokeWidth={30}
           initialRemainingTime={
             currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
@@ -165,25 +185,7 @@ function Clock() {
         </CountdownCircleTimer>
       </div>
 
-      <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'>
-        <Break
-          increment={incrementBreak}
-          decrement={decrementBreak}
-          breakCount={breakCount}
-        />
-
-        <Buttons
-          reset={handleResetClock}
-          stop={handleStopClock}
-          start={handleStartClock}
-          isPlaying={isPlaying}
-        />
-        <Session
-          increment={incrementSession}
-          decrement={decrementSession}
-          sessionCount={sessionCount}
-        />
-      </div>
+      {/* <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'></div> */}
       <audio id='beep' preload='auto' src={beep} ref={audioRef} />
     </div>
   );
