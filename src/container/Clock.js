@@ -126,7 +126,7 @@ function Clock() {
     return (
       <h1
         className={
-          'ClockFace flex flex-row justify-center text-9xl ' +
+          'ClockFace flex flex-row justify-center text-8xl ' +
           (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
         }
         id='time-left'
@@ -138,7 +138,7 @@ function Clock() {
 
   return (
     <div className='flex items-center justify-center flex-col flex-grow w-screen h-screen space-y-10'>
-      <div className='TimerSection p-5 md:p-10 card hover:shadow-xl flex flex-col justify-center'>
+      <div className='w-full h-full p-5 md:p-10 card hover:shadow-xl flex flex-col items-center justify-center'>
         <h3
           className='flex flex-row justify-center text-2xl uppercase mb-5'
           id='timer-label'
@@ -150,7 +150,7 @@ function Clock() {
           isPlaying={isPlaying}
           duration={clockCount}
           key={key}
-          size={500}
+          size={450}
           strokeWidth={30}
           initialRemainingTime={
             currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
