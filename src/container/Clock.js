@@ -137,6 +137,12 @@ function Clock() {
             sessionCount={sessionCount}
           />
         </div>
+        <h3
+          className='flex flex-row justify-center text-2xl uppercase'
+          id='timer-label'
+        >
+          {currentTimer} Timer:{' '}
+        </h3>
         <h1
           className={
             'ClockFace flex flex-row justify-center text-8xl ' +
@@ -159,13 +165,6 @@ function Clock() {
   return (
     <div className='flex items-center justify-center flex-col flex-grow w-screen h-screen space-y-10'>
       <div className='w-full h-full p-5 md:p-10 card hover:shadow-xl flex flex-col items-center justify-center'>
-        <h3
-          className='flex flex-row justify-center text-2xl uppercase mb-5'
-          id='timer-label'
-        >
-          {currentTimer} Timer:{' '}
-        </h3>
-
         <CountdownCircleTimer
           isPlaying={isPlaying}
           duration={clockCount}

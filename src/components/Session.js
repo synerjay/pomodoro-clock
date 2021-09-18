@@ -7,7 +7,7 @@ function Session({ increment, decrement, sessionCount }) {
   return (
     <div className='SessionTimer p-2 card hover:shadow-xl md:p-7 flex flex-col justify-center'>
       <h3 className='text-2xl uppercase flex justify-center' id='session-label'>
-        Session Length:
+        Session:
       </h3>{' '}
       <div className='SessionButtons flex flex-row justify-center'>
         <button
