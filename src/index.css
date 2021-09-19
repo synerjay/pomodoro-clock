@@ -37,7 +37,7 @@ code {
 }
 
 .btn {
-  @apply bg-gray-900 rounded-full py-2 px-10 font-bold cursor-pointer tracking-wider focus:outline-none;
+  @apply bg-gray-800 rounded-full py-2 px-10 font-bold cursor-pointer tracking-wider focus:outline-none;
 }
 
 .card {
