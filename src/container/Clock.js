@@ -181,7 +181,7 @@ function Clock() {
         >
           {RenderTime}
         </CountdownCircleTimer>
-        <h2 className='text-lg mt-7'>
+        <h2 className='text-xs mt-0 md:text-lg md:mt-7'>
           {' '}
           Made in React and Tailwind CSS by{' '}
           <a
