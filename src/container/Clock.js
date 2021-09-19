@@ -172,9 +172,9 @@ function Clock() {
             currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
           }
           colors={[
-            ['#004777', 0.33],
-            ['#F7B801', 0.33],
-            ['#A30000', 0.33],
+            ['#4ab6ff', 0.33],
+            ['#ffc726', 0.33],
+            ['#ff4f4f', 0.33],
           ]}
         >
           {RenderTime}
