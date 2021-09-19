@@ -171,9 +171,10 @@ function Clock() {
           initialRemainingTime={
             currentTimer === 'Session' ? sessionCount * 60 : breakCount * 60
           }
+          isLinearGradient={true}
           colors={[
             ['#4ab6ff', 0.33],
-            ['#ffc726', 0.33],
+            // ['#ffc726', 0.33],
             ['#ff4f4f', 0.33],
           ]}
         >
