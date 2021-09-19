@@ -144,10 +144,7 @@ function Clock() {
           {currentTimer} Timer:{' '}
         </h3>
         <h1
-          className={
-            'ClockFace flex flex-row justify-center text-8xl ' +
-            (currentTimer === 'Break' ? 'text-green-600' : 'text-red-600')
-          }
+          className='ClockFace flex flex-row justify-center text-8xl'
           id='time-left'
         >
           {timeFormatter(remainingTime)}
