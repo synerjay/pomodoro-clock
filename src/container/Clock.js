@@ -181,9 +181,18 @@ function Clock() {
         >
           {RenderTime}
         </CountdownCircleTimer>
+        <h2 className='text-lg mt-7'>
+          {' '}
+          Made in React and Tailwind CSS by{' '}
+          <a
+            className='underline'
+            target='_blank'
+            href='https://www.jerometo.com'
+          >
+            Jerome Tolentino
+          </a>
+        </h2>
       </div>
-
-      {/* <div className='ButtonsSection mt-8 grid gap-10 md:grid-cols-3'></div> */}
       <audio id='beep' preload='auto' src={beep} ref={audioRef} />
     </div>
   );
