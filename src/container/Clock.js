@@ -187,6 +187,7 @@ function Clock() {
           <a
             className='underline'
             target='_blank'
+            rel='noreferrer'
             href='https://www.jerometo.com'
           >
             Jerome Tolentino
