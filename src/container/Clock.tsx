@@ -8,7 +8,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 function Clock() {
   // Access the Audio DOM element by using useRef hook
-  const audioRef = useRef();
+  const audioRef = useRef<HTMLAudioElement>(null); // always set the useRef to initially null
   const [isPlaying, setIsPlaying] = useState(false);
   const [clockCount, setClockCount] = useState(25 * 60);
   const [currentTimer, setCurrentTimer] = useState('Session');
@@ -75,7 +75,7 @@ function Clock() {
       }
     };
 
-    let clockInterval;
+    let clockInterval: NodeJS.Timer;
     if (isPlaying && clockCount > 0) {
       clockInterval = setInterval(() => {
         setClockCount(clockCount - 1);
@@ -85,12 +85,15 @@ function Clock() {
         setClockCount(clockCount - 1);
       }, 1000);
       // play audio music here
-      audioRef.current.play();
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
       setKey((prevKey) => prevKey + 1);
       switchTimer();
-    } else {
-      clearInterval(clockInterval);
     }
+    // else {
+    //   clearInterval(clockInterval);
+    // }
 
     // useEffect hook version of componentWillUnmount
     return () => clearInterval(clockInterval);
@@ -117,12 +120,18 @@ function Clock() {
     setCurrentTimer('Session');
     setClockCount(25 * 60); // set to initial values
     setIsPlaying(false);
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
     setKey((prevKey) => prevKey + 1);
   };
 
-  const RenderTime = ({ remainingTime }) => {
+  interface RemainingTime {
+    remainingTime: number;
+  }
+
+  const RenderTime = ({ remainingTime }: RemainingTime) => {
     return (
       <div className='flex flex-col gap-y-5'>
         <div className='flex flex-row'>
@@ -194,7 +203,12 @@ function Clock() {
           </a>
         </h2>
       </div>
-      <audio id='beep' preload='auto' src={beep} ref={audioRef} />
+      <audio
+        id='beep'
+        preload='auto'
+        src={require('../beep.wav')}
+        ref={audioRef}
+      />
     </div>
   );
 }

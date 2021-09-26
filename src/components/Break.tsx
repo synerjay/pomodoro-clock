@@ -1,8 +1,14 @@
 import React from 'react';
 
-function Break({ increment, decrement, breakCount }) {
-  let count = breakCount;
-  count = count < 10 ? '0' + count : count;
+interface breakProps {
+  increment(): void;
+  decrement(): void;
+  breakCount: number;
+}
+
+function Break({ increment, decrement, breakCount }: breakProps) {
+  let count: string =
+    breakCount < 10 ? '0' + breakCount.toString() : breakCount.toString();
 
   return (
     <div className='BreakTimer p-2 card hover:shadow-xl md:p-7 flex flex-col justify-center'>

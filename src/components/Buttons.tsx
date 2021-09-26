@@ -1,6 +1,13 @@
 import React from 'react';
 
-function Buttons({ reset, start, stop, isPlaying }) {
+interface ButtonsProps {
+  reset(): void;
+  start(): void;
+  stop(): void;
+  isPlaying: boolean;
+}
+
+function Buttons({ reset, start, stop, isPlaying }: ButtonsProps) {
   return (
     <div className='buttons flex flex-row justify-center space-x-7 '>
       <button

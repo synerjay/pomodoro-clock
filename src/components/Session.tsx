@@ -1,8 +1,14 @@
 import React from 'react';
 
-function Session({ increment, decrement, sessionCount }) {
-  let count = sessionCount;
-  count = count < 10 ? '0' + count : count;
+interface SessionProps {
+  increment(): void;
+  decrement(): void;
+  sessionCount: number;
+}
+
+function Session({ increment, decrement, sessionCount }: SessionProps) {
+  let count: string =
+    sessionCount < 10 ? '0' + sessionCount.toString() : sessionCount.toString();
 
   return (
     <div className='SessionTimer p-2 card hover:shadow-xl md:p-7 flex flex-col justify-center'>
