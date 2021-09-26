@@ -192,7 +192,7 @@ function Clock() {
         </CountdownCircleTimer>
         <h2 className='text-xs mt-0 md:text-lg md:mt-7'>
           {' '}
-          Made in React and Tailwind CSS by{' '}
+          Made in React-TypeScript and Tailwind CSS by{' '}
           <a
             className='underline'
             target='_blank'
